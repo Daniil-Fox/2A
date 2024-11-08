@@ -1,0 +1,382 @@
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+html {
+  font-size: calc(100vw / 192);
+
+  @media (min-width: 1920px) {
+    font-size: 10px;
+  }
+
+  @media (max-width: 1024px) {
+    font-size: calc(100vw / 102.4);
+  }
+
+  @media (max-width: 576px) {
+    font-size: 10px;
+  }
+}
+
+.page {
+  height: 100%;
+  font-family: var(--font-family, sans-serif);
+  -webkit-text-size-adjust: 100%;
+  scroll-behavior: smooth;
+}
+
+.page__body {
+  margin: 0;
+  min-width: 360px;
+  min-height: 100%;
+  font-size: 16px;
+  background-color: #eaeaea;
+}
+
+img {
+  height: auto;
+  max-width: 100%;
+  object-fit: cover;
+}
+
+a {
+  text-decoration: none;
+}
+
+.site-container {
+  overflow: hidden; // если используете на сайте position: sticky - уберите эту настройку
+}
+
+.is-hidden {
+  display: none !important;
+  /* stylelint-disable-line declaration-no-important */
+}
+
+.btn-reset {
+  border: none;
+  padding: 0;
+  background-color: transparent;
+  cursor: pointer;
+}
+
+.list-reset {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+.input-reset {
+  -webkit-appearance: none;
+  appearance: none;
+  border: none;
+  border-radius: 0;
+  background-color: #fff;
+
+  &::-webkit-search-decoration,
+  &::-webkit-search-cancel-button,
+  &::-webkit-search-results-button,
+  &::-webkit-search-results-decoration {
+    display: none;
+  }
+}
+
+.visually-hidden {
+  position: absolute;
+  overflow: hidden;
+  margin: -1px;
+  border: 0;
+  padding: 0;
+  width: 1px;
+  height: 1px;
+  clip: rect(0 0 0 0);
+}
+
+.container {
+  margin: 0 auto;
+  padding: 0 var(--container-offset);
+  max-width: var(--container-width);
+}
+
+.centered {
+  text-align: center;
+}
+
+.dis-scroll {
+  position: fixed;
+  left: 0;
+  top: 0;
+  overflow: hidden;
+  width: 100%;
+  height: 100vh;
+  overscroll-behavior: none;
+}
+
+.page--ios .dis-scroll {
+  position: relative;
+}
+
+.body {
+  padding: 7rem;
+  background-color: #fff;
+  border-radius: 8rem;
+
+
+  @include mobile {
+    padding: 2.5rem 2rem;
+    border-radius: 3rem;
+  }
+}
+
+.title1 {
+  margin: 0;
+
+  font-weight: 600;
+  font-size: 6.4rem;
+  line-height: 105%;
+  color: var(--grey);
+
+  @include tablet {
+    font-size: 4.8rem;
+  }
+
+  @include mobile {
+    font-size: 2.8rem;
+  }
+}
+
+.title2 {
+  margin: 0;
+  margin-bottom: 10rem;
+  padding: 3.2rem;
+  font-weight: 600;
+  font-size: 2.6rem;
+  color: #2f3334;
+  text-align: center;
+  background: linear-gradient(90deg, rgba(6, 199, 244, 0.1) 0%, rgba(11, 123, 243, 0.1) 50%, rgba(16, 41, 245, 0.1) 100%);
+
+  border-radius: 5rem;
+
+  @include mobile {
+    font-size: 1.8rem;
+    padding: 2rem;
+    margin-bottom: 4rem;
+  }
+}
+
+.title3 {
+  margin: 0;
+  margin-bottom: 1.5rem;
+  font-weight: 600;
+  font-size: 3.6rem;
+  text-align: center;
+  color: var(--grey);
+
+  @include mobile {
+    font-size: 1.8rem;
+  }
+}
+
+.subtitle1 {
+  margin: 0;
+  font-weight: 600;
+  font-size: 2.8rem;
+  color: var(--grey);
+
+  &--600 {
+    font-weight: 600;
+  }
+
+  @include mobile {
+    font-size: 1.4rem;
+  }
+}
+
+.subtitle2 {
+  margin: 0;
+  font-weight: 400;
+  font-size: 2rem;
+  text-align: center;
+  color: rgba(47, 51, 52, 0.8);
+
+  @include mobile {
+    font-size: 1.2rem;
+  }
+}
+
+.desc1 {
+  margin: 0;
+  font-weight: 400;
+  font-size: 2.6rem;
+  color: var(--grey);
+
+  @include mobile {
+    font-size: 1.4rem;
+  }
+
+  &--600 {
+    font-weight: 600;
+  }
+}
+
+.desc2 {
+  margin: 0;
+  font-weight: 400;
+  font-size: 2.4rem;
+  color: var(--grey);
+
+  @include mobile {
+    font-size: 1.2rem;
+  }
+
+  span {
+    font-weight: 600;
+  }
+
+  &--600 {
+    font-weight: 600;
+  }
+}
+
+.desc3 {
+  margin: 0;
+  font-weight: 400;
+  font-size: 2rem;
+  color: var(--grey);
+
+  line-height: 130%;
+
+  @include mobile {
+    font-size: 1.2rem;
+  }
+}
+
+.btn1 {
+  display: inline-flex;
+  justify-content: center;
+  align-items: center;
+  gap: 1.4rem;
+  background: var(--grad);
+  padding: 3rem;
+  font-weight: 600;
+  font-size: 2.4rem;
+  color: #fff;
+  border-radius: 8rem;
+
+  @include tablet {
+    padding: 2.7rem;
+  }
+
+  @include mobile {
+    font-size: 1.2rem;
+    padding: 1.4rem;
+  }
+
+  &::after {
+    content: "";
+    display: block;
+    width: 4.5rem;
+    height: 4.5rem;
+    border-radius: 100%;
+    background: rgba(255, 255, 255, 0.2);
+
+    background-image: url('./../img/arrow-down-right.svg');
+    background-size: 1.5rem;
+    background-repeat: no-repeat;
+    background-position: center;
+
+    @include mobile {
+      width: 2.5rem;
+      height: 2.5rem;
+      background-size: .8rem;
+    }
+  }
+}
+
+
+.btn2 {
+  display: inline-flex;
+  padding: 3.3rem;
+  padding-left: 4rem;
+  padding-right: 11rem;
+  border-radius: 4rem;
+  background: linear-gradient(90deg, rgba(6, 199, 244, 0.1) 0%, rgba(11, 123, 243, 0.1) 50%, rgba(16, 41, 245, 0.1) 100%);
+  text-transform: uppercase;
+  font-weight: 600;
+  font-size: 2rem;
+  letter-spacing: 0.01em;
+  color: #2f3334;
+
+  position: relative;
+  transition: .3s ease-out;
+
+  @include mobile {
+    font-size: 1.2rem;
+    padding: 2.3rem;
+    text-align: center;
+    display: block;
+  }
+
+  &::after {
+    content: "";
+    position: absolute;
+    right: 0;
+    top: 0;
+    height: 100%;
+    aspect-ratio: 1 / 1;
+
+    background-color: #000;
+    border-radius: 100%;
+
+    background-image: url('./../img/arrow-down-right.svg'), linear-gradient(90deg, #06c7f4 0%, #0b7bf3 50%, #1029f5 100%);
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: 2rem, cover;
+
+    transition: .3s ease-out;
+
+    @include mobile {
+      background-size: 1.4rem, cover;
+    }
+  }
+
+  @include hover {
+    background: var(--hover-btn3);
+    color: #fff;
+
+    &::after {
+      transform: rotate(-43deg);
+    }
+  }
+}
+
+
+.btn3 {
+  display: inline-flex;
+  justify-content: center;
+  align-items: center;
+  gap: 1.4rem;
+  text-transform: uppercase;
+
+  font-weight: 600;
+  font-size: 2.4rem;
+  color: #fff;
+  background: var(--grad);
+  padding: 3rem;
+  border-radius: 8rem;
+
+  &::after {
+    content: "";
+    display: block;
+    width: 4.5rem;
+    height: 4.5rem;
+    flex-shrink: 0;
+    background-color: rgba(255, 255, 255, 0.2);
+    border-radius: 100%;
+    background-image: url('./../img/arrow-down-right.svg');
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: 1.5rem;
+  }
+}

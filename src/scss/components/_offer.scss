@@ -1,0 +1,109 @@
+.offer {
+  padding: 4rem 0;
+
+  @include mobile {
+    padding: 2rem 0;
+  }
+
+  &__item {
+    &:not(:last-child) {
+      margin-bottom: 8rem;
+
+      @include tablet {
+        margin-bottom: 13rem;
+      }
+
+      @include mobile {
+        margin-bottom: 4rem;
+      }
+    }
+  }
+
+  &__title {
+    @include tablet {
+      margin-bottom: 13rem;
+    }
+
+    @include mobile {
+      margin-bottom: 4rem;
+    }
+  }
+}
+
+
+.o-item {
+  display: flex;
+  gap: 6rem;
+
+  @include tablet {
+    position: relative;
+    flex-direction: column;
+    gap: 2.6rem;
+  }
+
+  &__img {
+    position: relative;
+    border-radius: 8rem;
+    overflow: hidden;
+    flex-basis: 53rem;
+    flex-shrink: 0;
+
+    @include tablet {
+      flex-basis: unset;
+    }
+
+    @include mobile {
+      border-radius: 3rem;
+    }
+
+    img {
+      position: absolute;
+      left: 0;
+      top: 0;
+      width: 100%;
+      height: 100%;
+
+      @include tablet {
+        position: static;
+      }
+    }
+  }
+
+  &__title {
+    margin-bottom: 2rem;
+
+    @include tablet {
+      margin-bottom: unset;
+      position: absolute;
+      left: 0;
+      bottom: calc(100% + 2.6rem);
+    }
+
+    @include mobile {
+      position: static;
+      margin-bottom: 1rem;
+    }
+  }
+
+  &__subtitle {
+    margin-bottom: 1.5rem;
+
+    @include mobile {
+      margin-bottom: 0.6rem;
+    }
+  }
+
+  &__desc {
+    margin-bottom: 3rem;
+
+    @include mobile {
+      margin-bottom: 1rem;
+    }
+  }
+
+  &__btn {
+    @include mobile {
+      width: 100%;
+    }
+  }
+}

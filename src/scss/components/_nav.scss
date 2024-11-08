@@ -1,0 +1,123 @@
+.nav {
+  &>ul {
+    display: flex;
+    align-items: center;
+    gap: 5rem;
+
+    @include tablet {
+      gap: 2rem;
+    }
+  }
+
+  &__wrapper {
+    position: absolute;
+    z-index: 10;
+    left: 0;
+    padding-top: 5rem;
+    top: calc(100%);
+    max-width: 100%;
+
+    @include mobile {
+      position: static;
+      padding-top: 0;
+    }
+  }
+
+  &>ul>.nav__item {
+    &--drop {
+      position: relative;
+
+      @include mobile {
+        text-align: center;
+      }
+
+      .nav__link {
+        display: inline-flex;
+        align-items: center;
+        gap: 1rem;
+
+
+
+        &::after {
+          content: "";
+          display: flex;
+          align-items: center;
+          justify-content: center;
+          width: 2.6rem;
+          height: 2.6rem;
+          border-radius: 100%;
+          background-image: url('./../img/arrow.svg'), linear-gradient(90deg, #06c7f4 0%, #0b7bf3 50%, #1029f5 100%);
+          background-size: 1rem, cover;
+          background-repeat: no-repeat;
+          background-position: center;
+          transform: rotate(180deg);
+
+          transition: .3s ease-out;
+
+        }
+      }
+
+      ul {
+        list-style: none;
+        padding: 0;
+        margin: 0;
+
+
+        border-radius: 4rem;
+        background: rgba(255, 255, 255, 0.7);
+        border: 1px solid #06c7f4;
+        width: 60rem;
+        transition: .3s ease-out;
+        max-height: 0;
+        overflow: hidden;
+        padding: 0rem 5rem;
+        border: none;
+        box-sizing: content-box;
+        transition: .3s ease-out;
+        will-change: margin-top;
+
+        @include mobile {
+
+          width: unset;
+          max-width: 100%;
+          padding: 0 2.7rem;
+        }
+
+        &>li {
+          &:not(:last-child) {
+            margin-bottom: 1.5rem;
+          }
+        }
+      }
+
+      &.active {
+        ul {
+          margin-top: 13px;
+        }
+      }
+    }
+  }
+
+  a {
+    font-family: var(--second-family);
+    font-weight: 600;
+    font-size: 2.4rem;
+    line-height: 133%;
+    letter-spacing: 0.17em;
+    color: var(--grey);
+
+    transition: color .3s ease-out;
+
+    @include hover {
+      color: var(--hover-link);
+    }
+
+    &:active {
+      color: var(--active-btn3);
+    }
+
+    @include tablet {
+      font-size: 1.4rem;
+    }
+  }
+}

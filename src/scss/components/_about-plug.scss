@@ -1,0 +1,95 @@
+.about-plug {
+  padding: 4rem 0;
+
+  &__container {
+    display: grid;
+    grid-template-columns: repeat(12, 1fr);
+    gap: 4rem;
+
+    @include tablet {
+      display: block;
+    }
+  }
+
+  &__title {
+    margin: 0;
+    margin-bottom: 2rem;
+    font-weight: 600;
+    font-size: 3rem;
+    color: var(--grey);
+
+    @include tablet {
+      font-size: 3.2rem;
+    }
+  }
+
+  &__body {
+    grid-column: 8 span;
+    display: flex;
+    gap: 9rem;
+    align-items: center;
+
+    @include tablet {
+      gap: 1rem;
+    }
+  }
+
+  &__img {
+    grid-column: 4 span;
+    position: relative;
+    border-radius: 8rem;
+    overflow: hidden;
+
+    @include tablet {
+      display: none;
+    }
+
+    img {
+      position: absolute;
+      left: 0;
+      top: 0;
+      width: 100%;
+      height: 100%;
+    }
+  }
+
+  &__link {
+    flex-shrink: 0;
+    width: 10rem;
+    height: 10rem;
+    border-radius: 100%;
+    position: relative;
+
+    &::after {
+      content: "";
+      position: absolute;
+      right: 0;
+      top: 0;
+      height: 100%;
+      aspect-ratio: 1 / 1;
+
+      background-color: #000;
+      border-radius: 100%;
+
+      background-image: url('./../img/arrow-down-right.svg'), linear-gradient(90deg, #06c7f4 0%, #0b7bf3 50%, #1029f5 100%);
+      background-repeat: no-repeat;
+      background-position: center;
+      background-size: 2rem, cover;
+
+      transition: .3s ease-out;
+
+      @include mobile {
+        background-size: 1.4rem, cover;
+      }
+    }
+
+    @include hover {
+      background: var(--hover-btn3);
+      color: #fff;
+
+      &::after {
+        transform: rotate(-43deg);
+      }
+    }
+  }
+}

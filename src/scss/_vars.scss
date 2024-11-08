@@ -1,0 +1,26 @@
+// если вы хотите использовать sass-переменные - удалите root
+// colors
+:root {
+  // base
+  --font-family: "Outfit", sans-serif;
+  --second-family: "Inter", sans-serif;
+  --third-family: "Jost", sans-serif;
+  --font3: "Open Sans", sans-serif;
+  --font4: "Clear Sans", sans-serif;
+  --content-width: 1680px;
+  --container-offset: 15px;
+  --container-width: calc(var(--content-width) + (var(--container-offset) * 2));
+
+  // colors
+  --seryy-shrift: #333;
+  --color-cread: #36bdff;
+  --grey: #2f3334;
+  --blue: #32d5f9;
+
+  --grad: linear-gradient(to right, #06c7f4, #0b7bf3, #1029f5);
+  --light-grad: linear-gradient(90deg, rgba(6, 199, 244, 0.1) 0%, rgba(11, 123, 243, 0.1) 50%, rgba(16, 41, 245, 0.1) 100%);
+
+  --hover-link: rgba(16, 41, 245, 0.9);
+  --hover-btn3: #1029f5;
+  --active-btn3: #06c7f4;
+}

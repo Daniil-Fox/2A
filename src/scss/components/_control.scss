@@ -1,0 +1,65 @@
+.control {
+
+  &__btn {
+    position: absolute;
+    z-index: 10;
+    top: 50%;
+    transform: translateY(-50%);
+    width: 10rem;
+    height: 10rem;
+    border-radius: 100%;
+    overflow: hidden;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+
+    &::before {
+      content: "";
+      position: absolute;
+      inset: 0;
+      z-index: 1;
+      background: linear-gradient(90deg, #06c7f4 0%, #0b7bf3 50%, #1029f5 100%);
+      opacity: 1;
+    }
+
+    &::after {
+      content: "";
+      position: absolute;
+      inset: 0;
+      z-index: 2;
+      background: rgba(104, 104, 104, 1);
+      opacity: 0;
+      transition: .3s ease-out;
+    }
+
+    svg {
+      position: relative;
+      z-index: 4;
+      width: 1.6rem;
+      height: 2.6rem;
+      fill: #fff;
+
+      transition: .3s ease-out;
+    }
+
+    &--prev {
+      left: 0;
+
+      svg {
+        transform: rotate(180deg);
+      }
+    }
+
+    &--next {
+      right: 0;
+    }
+
+    &.swiper-button-disabled {
+      &::after {
+        opacity: 1;
+      }
+    }
+  }
+}

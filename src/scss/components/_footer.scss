@@ -1,0 +1,85 @@
+.footer {
+  margin-bottom: 2rem;
+
+  &__container {
+    display: flex;
+    justify-content: space-between;
+
+    @include mobile {
+      flex-direction: column;
+      gap: 4rem;
+    }
+  }
+
+  &__body {
+    padding-left: 12rem;
+    padding-right: 12rem;
+
+    @include mobile {
+      padding: 3rem 2rem;
+    }
+  }
+
+  &__logo {
+    margin-bottom: 2rem;
+    display: block;
+    width: 14rem;
+    height: auto;
+
+    img {
+      display: block;
+      width: 100%;
+      height: auto;
+      object-fit: contain;
+    }
+  }
+
+  &__row {
+    margin-bottom: 2rem;
+    display: flex;
+    align-items: center;
+    gap: .8rem;
+  }
+
+  &__soc {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 3.2rem;
+    height: 3.2rem;
+    border-radius: 100%;
+    background: var(--grad);
+
+    svg {
+      width: 1.5rem;
+      height: 1.5rem;
+    }
+  }
+
+  &__pol {
+    display: block;
+
+    &:not(:last-child) {
+      margin-bottom: 2rem;
+    }
+
+    a {
+      font-family: var(--font-family);
+      font-weight: 500;
+      font-size: 1.5rem;
+      letter-spacing: 0.01em;
+      text-decoration: underline;
+      text-decoration-skip-ink: none;
+      color: #000;
+    }
+  }
+
+  &__nav {
+    .nav__list {
+      @include tablet {
+        flex-direction: column;
+        align-items: flex-start;
+      }
+    }
+  }
+}
