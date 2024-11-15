@@ -1,0 +1,122 @@
+.spec-offer {
+  padding: 4rem 0;
+
+  @include mobile {
+    padding: 2rem 0;
+  }
+
+  &__subtitle {
+    margin: 0;
+    margin-bottom: 5rem;
+    font-family: var(--font-family);
+    font-weight: 600;
+    font-size: 3rem;
+    line-height: 140%;
+    letter-spacing: 0.01em;
+    color: var(--grey);
+
+    span {
+      background: linear-gradient(90deg, #06c7f4 0%, #0b7bf3 50%, #1029f5 100%);
+      background-clip: text;
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+    }
+  }
+
+  &__cost {
+    margin-bottom: 5rem;
+
+    span {
+      display: block;
+      margin-bottom: 1rem;
+      font-weight: 500;
+      letter-spacing: 0.01em;
+    }
+  }
+
+  &__price {
+    display: flex;
+    align-items: center;
+    gap: 5rem;
+  }
+
+  &__old {
+    margin: 0;
+    font-weight: 600;
+    font-size: 4rem;
+    letter-spacing: 0.01em;
+    text-decoration: line-through;
+    color: rgba(47, 51, 52, 0.6);
+  }
+
+  &__current {
+    margin: 0;
+    font-weight: 600;
+    font-size: 6rem;
+    letter-spacing: 0.01em;
+    background: linear-gradient(90deg, #06c7f4 0%, #0b7bf3 50%, #1029f5 100%);
+    background-clip: text;
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+  }
+
+  &__content {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 10rem;
+  }
+
+  &__text {
+    flex-shrink: 0;
+    width: 100%;
+    max-width: 57rem;
+  }
+
+  &__time {
+    display: flex;
+    align-items: center;
+    gap: 2.2rem;
+
+    &__btn {
+      padding-right: 10rem;
+    }
+  }
+
+  &__numbs {
+    display: flex;
+    align-items: center;
+    gap: 2.2rem;
+
+    &>span {
+      display: inline-block;
+      border-radius: 3rem;
+      padding: 4.2rem 2.8rem;
+      background: #ebfbfe;
+
+
+      font-weight: 600;
+      font-size: 10rem;
+      letter-spacing: 0.04em;
+
+      span {
+        background: linear-gradient(90deg, #06c7f4 0%, #0b7bf3 50%, #1029f5 100%);
+        background-clip: text;
+        -webkit-background-clip: text;
+        -webkit-text-fill-color: transparent;
+
+      }
+    }
+
+    &:not(:last-child)::after {
+      content: ":";
+      background: linear-gradient(90deg, #06c7f4 0%, #0b7bf3 50%, #1029f5 100%);
+      background-clip: text;
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+
+      font-weight: 600;
+      font-size: 10rem;
+    }
+  }
+}

@@ -12,6 +12,8 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _components_sliders_js__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./components/sliders.js */ "./src/js/components/sliders.js");
 /* harmony import */ var _components_menu_js__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./components/menu.js */ "./src/js/components/menu.js");
 /* harmony import */ var _components_faq_js__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./components/faq.js */ "./src/js/components/faq.js");
+/* harmony import */ var _components_timer_js__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./components/timer.js */ "./src/js/components/timer.js");
+
 
 
 
@@ -98,6 +100,43 @@ new swiper__WEBPACK_IMPORTED_MODULE_0__.Swiper('.testi__slider', {
     }
   }
 });
+
+/***/ }),
+
+/***/ "./src/js/components/timer.js":
+/*!************************************!*\
+  !*** ./src/js/components/timer.js ***!
+  \************************************/
+/***/ ((__unused_webpack___webpack_module__, __webpack_exports__, __webpack_require__) => {
+
+__webpack_require__.r(__webpack_exports__);
+const timerContainer = document.querySelector(".spec-offer__time");
+if (timerContainer) {
+  const dedlineTime = timerContainer.dataset.time;
+  const deadline = new Date(dedlineTime);
+  // id таймера
+  let timerId = null;
+  const hours = document.querySelector(".timer__hours");
+  const minutes = document.querySelector(".timer__minutes");
+  const seconds = document.querySelector(".timer__seconds");
+  function countdownTimer() {
+    const diff = deadline - new Date();
+    if (diff <= 0) {
+      clearInterval(timerId);
+    }
+    const h = diff > 0 ? Math.floor(diff / 1000 / 60 / 60) : 0;
+    const m = diff > 0 ? Math.floor(diff / 1000 / 60) % 60 : 0;
+    const s = diff > 0 ? Math.floor(diff / 1000) % 60 : 0;
+    hours.innerHTML = h < 10 ? `<span><span>0${h}</span></span>` : `<span><span>${h}</span></span>`;
+    minutes.innerHTML = m < 10 ? `<span><span>0${m}</span></span>` : `<span><span>${m}</span></span>`;
+    seconds.innerHTML = s < 10 ? `<span><span>0${s}</span></span>` : `<span><span>${s}</span></span>`;
+  }
+
+  // вызываем функцию countdownTimer
+  countdownTimer();
+  // вызываем функцию countdownTimer каждую секунду
+  timerId = setInterval(countdownTimer, 1000);
+}
 
 /***/ }),
 
@@ -10591,16 +10630,16 @@ var __webpack_exports__ = {};
 __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _components_js__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./_components.js */ "./src/js/_components.js");
 
-const headerDrop = document.querySelectorAll('.nav__item--drop');
+const headerDrop = document.querySelectorAll(".nav__item--drop");
 if (headerDrop.length > 0) {
   function showList(list) {
     if (window.matchMedia("(min-width: 769px)").matches) {
-      list.style.padding = '4rem 5rem';
+      list.style.padding = "4rem 5rem";
     } else {
-      list.style.padding = '2.7rem 2.3rem';
+      list.style.padding = "2.7rem 2.3rem";
     }
-    list.style.border = '1px solid #06c7f4';
-    list.style.maxHeight = list.scrollHeight + 'px';
+    list.style.border = "1px solid #06c7f4";
+    list.style.maxHeight = list.scrollHeight + "px";
   }
   function hideList(list) {
     list.style.maxHeight = null;
@@ -10608,18 +10647,18 @@ if (headerDrop.length > 0) {
     list.style.padding = null;
   }
   headerDrop.forEach(el => {
-    const innerList = el.querySelector('ul');
-    const innerWrapper = el.querySelector('.nav__wrapper');
-    if (window.matchMedia('(min-width: 1025px)').matches) {
-      el.addEventListener('mouseenter', e => {
+    const innerList = el.querySelector("ul");
+    const innerWrapper = el.querySelector(".nav__wrapper");
+    if (window.matchMedia("(min-width: 1025px)").matches) {
+      el.addEventListener("mouseenter", e => {
         showList(innerList);
       });
-      el.addEventListener('mouseleave', e => {
+      el.addEventListener("mouseleave", e => {
         hideList(innerList);
       });
     } else {
-      el.addEventListener('click', e => {
-        let active = el.classList.toggle('active');
+      el.addEventListener("click", e => {
+        let active = el.classList.toggle("active");
         active ? showList(innerList) : hideList(innerList);
       });
     }
