@@ -1,5 +1,5 @@
 import "./_components.js";
-
+import { createPopper, offset } from "@popperjs/core";
 const headerDrop = document.querySelectorAll(".nav__item--drop");
 
 if (headerDrop.length > 0) {
@@ -37,3 +37,64 @@ if (headerDrop.length > 0) {
     }
   });
 }
+
+const changePos = {
+  name: 'changePos',
+  enabled: true,
+  phase: 'main',
+
+  fn({state}){
+    if(state.placement == 'top'){
+      state.elements.popper.classList.add('tooltip--top')
+    }
+  }
+}
+
+const tLink = document.querySelectorAll('.sch-item__more')
+let posSpace = window.innerWidth / 192
+let widthWind = window.innerWidth
+window.addEventListener('resize', e => {
+  posSpace = window.innerWidth / 192
+  widthWind = window.innerWidth
+})
+tLink.forEach(el => {
+  let tooltip = el.querySelector('.tooltip')
+  let flag = false
+  function handleClick(e){
+    tLink.forEach(el => {
+      let tooltip = el.querySelector('.tooltip')
+      tooltip.style.opacity = null
+      tooltip.style.visibility = null
+    })
+    e.preventDefault()
+
+    if(flag) {
+      flag = false
+      return
+    }
+    tooltip.style.opacity = 1
+    tooltip.style.visibility = 'visible'
+
+    flag = true
+  }
+  if(widthWind < 1025){
+    el.addEventListener('click', handleClick)
+  } else {
+    el.removeEventListener('click', handleClick)
+  }
+  const offset = [-100, 9]
+
+  if(widthWind < 577){
+    offset[0] = 0
+    offset[1] = 14
+  }
+  createPopper(el, tooltip, {
+    placement: 'bottom',
+    modifiers: [{
+      name: 'offset',
+      options: {
+        offset: offset
+      }
+    }, changePos]
+  })
+})

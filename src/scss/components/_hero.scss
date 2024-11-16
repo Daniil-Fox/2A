@@ -52,6 +52,7 @@
   &__cover {
     display: none;
     margin-bottom: 1.5rem;
+    width: 82%;
 
     @include mobile {
       display: block;
